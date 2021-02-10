@@ -21,6 +21,7 @@ def get_map(toponym_to_find):
         map_api_server = "http://static-maps.yandex.ru/1.x/"
         try:
             response = requests.get(map_api_server, params=map_params)
-            return Image.open(BytesIO(response.content))
+            print(type(response.content))
+            return response.content
         except Exception as e:
             print('Ошибка: ', e)
